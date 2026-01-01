@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Order Confirmed{% endblock %}
+
+{% block content %}
+    <div style="text-align: center; padding: 4rem 0;">
+        <div style="font-size: 4rem; color: var(--success); margin-bottom: 1rem;">✓</div>
+        <h1 style="margin-bottom: 1rem;">Order Confirmed!</h1>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">Thank you for your simulated purchase.</p>
+        <p style="margin-bottom: 2rem;">Order ID: <span id="order-id" style="font-family: monospace; color: var(--accent);">...</span></p>
+        <a href="/" class="btn" style="width: auto;">Continue Shopping</a>
+    </div>
+    <script>
+        // Start fresh
+        localStorage.setItem('cart', JSON.stringify([]));
+        updateCartCount();
+        
+        // Get order id from query param if possible
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderId = urlParams.get('order_id');
+        if (orderId) {
+            document.getElementById('order-id').innerText = orderId;
+        } else {
+             document.getElementById('order-id').innerText = 'ORD-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+        }
+    </script>
+{% endblock %}

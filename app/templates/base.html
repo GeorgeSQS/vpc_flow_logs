@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="VPC Flow Log Traffic Generator Store" />
+    <title>CloudMart | {% block title %}Store{% endblock %}</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <header>
+      <a href="/" class="logo">CloudMart</a>
+      <nav>
+        <a href="/">Products</a>
+        <a href="/cart">Cart <span id="cart-count">(0)</span></a>
+      </nav>
+    </header>
+
+    <main>{% block content %} {% endblock %}</main>
+
+    <footer>
+      <p>Generates VPC Flow Logs via naturally occurring traffic.</p>
+      <p>&copy; 2026 CloudMart Logic</p>
+    </footer>
+
+    <div id="toast" class="toast">Action Successful</div>
+
+    <script src="/static/js/script.js"></script>
+    {% block scripts %}{% endblock %}
+  </body>
+</html>
